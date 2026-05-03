@@ -508,3 +508,278 @@ Medidas DAX:
 
 ```DAX
 Target Profit Margin = 0.70
+
+Lógica:
+
+El gauge permite ver rápidamente si el margen promedio está cerca o lejos de la meta.
+
+Cómo se abordó:
+
+Se calculó el Avg Profit Margin.
+Se creó una medida objetivo de 70%.
+Se creó una medida máxima de 100%.
+
+### Pregunta 7: ¿Cuántas órdenes están arriba o abajo del margen objetivo?
+
+Visual usado:
+- Cards
+
+Medidas:
+- Orders Above Target Profit Margin
+- Orders Below Target Profit Margin
+Lógica:
+Las tarjetas muestran cantidades concretas. Son útiles cuando se quiere que el usuario vea rápidamente cuántos casos cumplen o no cumplen una condición.
+
+Cómo se abordó:
+- Se creó una medida para contar órdenes con Profit Margin mayor al objetivo.
+- Se creó otra medida para contar órdenes por debajo o igual al objetivo.
+
+### Pregunta 8: ¿Las órdenes y devoluciones cumplen sus metas?
+
+Visual usado:
+- KPI visual
+
+Campos:
+- Indicator: Total Orders / Total Returns
+- Trend axis: Month
+- Target: Target Orders / Target Returns
+
+Lógica:
+
+Un KPI permite comparar desempeño actual contra una meta y mostrar si el resultado va bien o mal.
+
+Cómo se abordó:
+
+Se creó una meta fija para órdenes.
+Se creó una meta fija para devoluciones.
+En devoluciones, se configuró la interpretación considerando que menor es mejor.
+
+## 6. Cómo pensar un reporte desde cero
+
+Antes de abrir Power BI, conviene definir el objetivo del reporte. Esto evita construir visualizaciones sin dirección.
+
+## 6.1 Definir el objetivo
+
+Ejemplo:
+
+Analizar el desempeño comercial de una tienda para identificar ventas, utilidad, margen y cumplimiento de metas.
+
+## 6.2 Definir la audiencia
+
+Ejemplo:
+
+El reporte está dirigido a un perfil ejecutivo o comercial que necesita información rápida para tomar decisiones.
+
+## 6.3 Definir las preguntas de negocio
+
+Ejemplos:
+
+¿Cuánto se vendió?
+¿Qué productos generaron más ingresos?
+¿Qué categorías son más rentables?
+¿Cómo evolucionan ventas, costos y utilidad en el tiempo?
+¿Qué canales concentran más órdenes?
+¿Qué productos están debajo del margen objetivo?
+¿Se cumplen las metas de órdenes y devoluciones?
+## 6.4 Definir las métricas
+
+Ejemplos:
+
+Sales Amount
+Cost of Goods Sold
+Profit
+Profit Margin
+Order Quantity
+Total Orders
+Returns
+Target Profit Margin
+
+## 6.5 Definir las páginas
+
+Ejemplo:
+
+Página 1: Overview
+Página 2: Product Performance
+Página 3: Channel / Retailer Breakdown
+Página 4: Profitability and Targets
+Página 5: KPIs
+
+### 7. Guía de lectura por página del Pixel Perfect Report
+
+Esta sección funciona como una guía para explicar el reporte final. También sirve para practicar cómo presentar el dashboard en una entrevista o en un proyecto de portafolio.
+
+Página 1: Order Details / Exploración inicial
+
+En esta página se muestra una vista detallada de las órdenes, incluyendo campos como:
+
+Order_ID
+Product_SKU
+Order_Quantity
+Sales_Amount
+Cost_of_Goods_Sold
+Order_Date
+
+También se incluyen visualizaciones como un scatter plot para comparar ventas contra costos.
+
+Lectura de negocio:
+
+Esta página permite explorar el detalle operativo de las órdenes y observar la relación entre ventas y costos. El scatter plot ayuda a identificar si los costos aumentan conforme aumentan las ventas y permite detectar posibles valores atípicos.
+
+Cómo explicarla:
+
+Esta página funciona como una exploración inicial. Primero reviso los registros de órdenes y después comparo Sales Amount contra Cost of Goods Sold para entender si existe una relación entre ingreso y costo. También agregué filtros por fecha y producto para analizar periodos específicos.
+
+Página 2: Product Comparison
+
+En esta página se comparan productos por ventas, especialmente filtrando por atributos como género, canal o categoría.
+
+Visuales principales:
+
+Bar chart de Sales Amount por Product Name
+Slicers de Product Gender y Retailer Channel
+
+Lectura de negocio:
+
+La página permite identificar qué productos concentran más ventas y cómo cambia esa lectura al filtrar por género o canal. También permite destacar productos con mejor o peor desempeño.
+
+Cómo explicarla:
+
+Aquí el objetivo es comparar productos. Usé barras horizontales porque los nombres de productos son largos y porque este visual facilita ordenar de mayor a menor. Además, los slicers permiten que el usuario analice segmentos específicos sin saturar la página.
+
+Página 3: Retailer Breakdown
+
+En esta página se analiza la cantidad de órdenes por canal y categoría.
+
+Visual principal:
+
+Stacked bar chart: Order Quantity by Retailer Channel and Product Category
+
+Lectura de negocio:
+
+Esta página ayuda a entender qué canales generan más órdenes y qué categorías dominan dentro de cada canal. Por ejemplo, se pueden comparar canales como Franchise, Local Store, Supermarket y Small Chain Store.
+
+Cómo explicarla:
+
+Esta página responde cómo se distribuyen las órdenes entre canales. Elegí una barra apilada porque permite ver el total de órdenes por canal y, al mismo tiempo, la composición por categoría.
+
+Página 4: Small Multiples
+
+En esta página se analiza la cantidad de órdenes por género y color de producto.
+
+Visual principal:
+
+Small multiples: Order Quantity by Product Gender and Product Color
+
+Lectura de negocio:
+
+Esta página permite comparar patrones de compra entre hombres y mujeres para distintos colores. Es útil para detectar colores donde un género domina claramente o donde la demanda está más equilibrada.
+
+Cómo explicarla:
+
+Usé small multiples porque quería comparar varios grupos de color sin crear muchas gráficas separadas. Cada mini gráfico mantiene la misma estructura, lo que facilita comparar patrones visualmente.
+
+Página 5: Revenue and Profit
+
+En esta página se analiza el desempeño financiero en el tiempo.
+
+Visuales principales:
+
+Line chart: Revenue, COGS and Profit by Month and Year
+Combo chart: Gross Profit and Average Profit Margin over time
+Tornado chart: Revenue vs Cost by category
+
+Lectura de negocio:
+
+Esta página muestra si las ventas, costos y utilidad se mueven en la misma dirección. También permite analizar si una categoría genera alto ingreso pero también alto costo.
+
+Cómo explicarla:
+
+Esta página está enfocada en rentabilidad. No solo muestra cuánto se vendió, sino también cuánto costó y qué utilidad quedó. El gráfico combinado permite ver Profit junto con Profit Margin, lo cual ayuda a distinguir entre ganar más dinero total y ser más eficiente.
+
+Página 6: Shares / Gauge / Cards
+
+En esta página se trabaja con participación, márgenes y metas.
+
+Visuales principales:
+
+Treemap por Retailer Channel
+Pie chart por Product Size
+Gauge de Avg Profit Margin vs Target Profit Margin
+Cards de órdenes arriba y abajo del margen objetivo
+
+Lectura de negocio:
+
+La página permite ver la distribución de ventas u órdenes por canal, el peso de las tallas y el cumplimiento del margen objetivo. Las tarjetas resumen cuántas órdenes están arriba o abajo del margen esperado.
+
+Cómo explicarla:
+
+Esta página combina participación y cumplimiento de metas. El treemap ayuda a ver qué canales ocupan mayor proporción. El gauge resume si el margen promedio se acerca al objetivo de 70%, y las tarjetas muestran cuántas órdenes superan o no ese margen.
+
+Página 7: KPIs
+
+En esta página se comparan indicadores contra metas.
+
+Visuales principales:
+
+KPI de Total Orders vs Target Orders
+KPI de Total Returns vs Target Returns
+
+Lectura de negocio:
+
+Esta página permite monitorear rápidamente si las órdenes y devoluciones están dentro de los objetivos esperados. En devoluciones, la interpretación cambia porque menor es mejor.
+
+Cómo explicarla:
+
+Esta página está pensada para seguimiento ejecutivo. Los KPIs permiten ver si el negocio cumple sus objetivos. Para órdenes, más suele ser mejor; para devoluciones, configuré la lógica considerando que menos devoluciones es mejor.
+
+## 8. Checklist para un próximo proyecto propio
+Antes de construir
+ - Definí la audiencia.
+ - Definí la pregunta principal del reporte.
+ - Escribí las preguntas de negocio.
+ - Identifiqué las métricas principales.
+ - Separé el análisis en páginas.
+Durante la construcción
+ - Cada página cuenta una sola historia.
+ - No hay visuales innecesarios.
+ - Los filtros son útiles y no estorban.
+ - Los títulos son claros.
+ - Los colores tienen intención.
+ - Las métricas tienen formato correcto.
+ - Los elementos están alineados.
+ - Hay suficiente espacio en blanco.
+Antes de terminar
+ - El usuario puede entender la página en menos de 10 segundos.
+ - Las gráficas responden preguntas reales.
+ - Las medidas DAX tienen nombres claros.
+ - No hay nombres técnicos confusos.
+ - Puedo explicar cada visualización.
+ - Puedo justificar por qué elegí cada gráfica.
+
+## 9. Para elegir visualizaciones
+
+Número clave → Tarjeta
+Tiempo → Línea o combo chart
+Categorías → Barras
+Composición → Treemap / stacked bar
+Relación entre variables → Scatter plot
+Meta → Gauge o KPI
+Detalle → Tabla o matriz
+Muchos grupos comparables → Small multiples
+10. Conclusión personal
+
+Este curso me ayudó a entender que Power BI no se trata únicamente de saber usar visualizaciones, sino de aprender a estructurar información para responder preguntas de negocio.
+
+La parte más importante no es elegir una gráfica “bonita”, sino entender qué necesita ver el usuario, qué decisión quiere tomar y cuál es la forma más clara de mostrar la información.
+
+Para mi siguiente proyecto, quiero aplicar esta lógica desde el inicio:
+
+Definir la audiencia.
+Escribir las preguntas de negocio.
+Elegir métricas relevantes.
+Separar el análisis por páginas.
+Usar visualizaciones que respondan preguntas concretas.
+Reducir ruido visual.
+Explicar cada página como una historia de negocio.
+
+El objetivo final es construir reportes más claros, más útiles y más fáciles de defender en un contexto profesional.
