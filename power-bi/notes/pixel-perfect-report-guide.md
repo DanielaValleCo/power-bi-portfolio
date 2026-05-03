@@ -773,13 +773,21 @@ Antes de terminar
 ## 9. Para elegir visualizaciones
 
 Número clave → Tarjeta
-Tiempo → Línea o combo chart
+
+Tiempo → Línea o combo chart 
+
 Categorías → Barras
+
 Composición → Treemap / stacked bar
+
 Relación entre variables → Scatter plot
+
 Meta → Gauge o KPI
+
 Detalle → Tabla o matriz
+
 Muchos grupos comparables → Small multiples
+
 10. Conclusión personal
 
 Este curso me ayudó a entender que Power BI no se trata únicamente de saber usar visualizaciones, sino de aprender a estructurar información para responder preguntas de negocio.
