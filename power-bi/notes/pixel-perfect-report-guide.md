@@ -508,6 +508,7 @@ Medidas DAX:
 
 ```DAX
 Target Profit Margin = 0.70
+```
 
 Lógica:
 
@@ -609,6 +610,8 @@ Página 5: KPIs
 Esta sección funciona como una guía para explicar el reporte final. También sirve para practicar cómo presentar el dashboard en una entrevista o en un proyecto de portafolio.
 
 Página 1: Order Details / Exploración inicial
+<img width="617" height="357" alt="image" src="https://github.com/user-attachments/assets/9ae310d9-5a02-4932-afea-45f5bea9308a" />
+
 
 En esta página se muestra una vista detallada de las órdenes, incluyendo campos como:
 
@@ -630,6 +633,8 @@ Cómo explicarla:
 Esta página funciona como una exploración inicial. Primero reviso los registros de órdenes y después comparo Sales Amount contra Cost of Goods Sold para entender si existe una relación entre ingreso y costo. También agregué filtros por fecha y producto para analizar periodos específicos.
 
 Página 2: Product Comparison
+<img width="517" height="358" alt="image" src="https://github.com/user-attachments/assets/19a8263c-dc03-48be-9ec2-66aa7f3117f7" />
+
 
 En esta página se comparan productos por ventas, especialmente filtrando por atributos como género, canal o categoría.
 
@@ -647,6 +652,8 @@ Cómo explicarla:
 Aquí el objetivo es comparar productos. Usé barras horizontales porque los nombres de productos son largos y porque este visual facilita ordenar de mayor a menor. Además, los slicers permiten que el usuario analice segmentos específicos sin saturar la página.
 
 Página 3: Retailer Breakdown
+<img width="538" height="352" alt="image" src="https://github.com/user-attachments/assets/5cfefff3-a22d-4376-a28e-2e34ea330a96" />
+
 
 En esta página se analiza la cantidad de órdenes por canal y categoría.
 
@@ -663,6 +670,8 @@ Cómo explicarla:
 Esta página responde cómo se distribuyen las órdenes entre canales. Elegí una barra apilada porque permite ver el total de órdenes por canal y, al mismo tiempo, la composición por categoría.
 
 Página 4: Small Multiples
+<img width="603" height="357" alt="image" src="https://github.com/user-attachments/assets/42a05090-ffc7-49b1-ba01-589affa212ed" />
+
 
 En esta página se analiza la cantidad de órdenes por género y color de producto.
 
@@ -679,6 +688,8 @@ Cómo explicarla:
 Usé small multiples porque quería comparar varios grupos de color sin crear muchas gráficas separadas. Cada mini gráfico mantiene la misma estructura, lo que facilita comparar patrones visualmente.
 
 Página 5: Revenue and Profit
+<img width="627" height="352" alt="image" src="https://github.com/user-attachments/assets/6066fab0-92c8-4d1e-b578-e4d584917a42" />
+
 
 En esta página se analiza el desempeño financiero en el tiempo.
 
@@ -697,6 +708,8 @@ Cómo explicarla:
 Esta página está enfocada en rentabilidad. No solo muestra cuánto se vendió, sino también cuánto costó y qué utilidad quedó. El gráfico combinado permite ver Profit junto con Profit Margin, lo cual ayuda a distinguir entre ganar más dinero total y ser más eficiente.
 
 Página 6: Shares / Gauge / Cards
+<img width="612" height="348" alt="image" src="https://github.com/user-attachments/assets/ddd6db22-075a-4141-a3ea-09f72d4ab58e" />
+
 
 En esta página se trabaja con participación, márgenes y metas.
 
@@ -716,6 +729,7 @@ Cómo explicarla:
 Esta página combina participación y cumplimiento de metas. El treemap ayuda a ver qué canales ocupan mayor proporción. El gauge resume si el margen promedio se acerca al objetivo de 70%, y las tarjetas muestran cuántas órdenes superan o no ese margen.
 
 Página 7: KPIs
+<img width="602" height="308" alt="image" src="https://github.com/user-attachments/assets/45f8419a-44b3-4fc3-b9b0-fe9196b0b852" />
 
 En esta página se comparan indicadores contra metas.
 
