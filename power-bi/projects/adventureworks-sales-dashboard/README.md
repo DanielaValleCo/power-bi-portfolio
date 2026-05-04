@@ -1,66 +1,68 @@
-# AdventureWorks Sales Performance Dashboard
+# Dashboard de Desempeño de Ventas de AdventureWorks
 
-## Project Overview
+## Descripción del proyecto
 
-This Power BI dashboard analyzes the commercial performance of **AdventureWorks** from **2017 to 2020**, focusing on sales, product-level profitability, regional performance, reseller behavior, pricing strategy, and KPI monitoring.
+Este dashboard en Power BI analiza el desempeño comercial de **AdventureWorks** durante el periodo **2017 a 2020**, con enfoque en ventas, rentabilidad a nivel producto, desempeño regional, comportamiento de resellers, estrategia de precios y monitoreo de KPIs.
 
-The objective of this project was not only to create visualizations, but to build a business-oriented report where each page answers a specific analytical question.
+El objetivo de este proyecto no fue solamente crear visualizaciones, sino construir un reporte orientado a negocio, donde cada página responde una pregunta analítica específica.
 
-The Power BI file is included in this project folder:
+El archivo de Power BI está incluido en esta carpeta del proyecto:
 
 ```text
 adventureworks-sales-performance-dashboard.pbix
 ```
 
-Since `.pbix` files cannot be previewed directly on GitHub, screenshots of each report page are included below.
+Como los archivos `.pbix` no pueden visualizarse directamente en GitHub, se incluyen capturas de pantalla de cada página del reporte.
 
 ---
 
-## Report Preview
-
-> Screenshots will be added in this section.
+## Vista previa del reporte
 
 ### 1. Executive Overview
 
-![Executive Overview](screenshots/01-executive-overview.png)
+<img width="1261" height="707" alt="image" src="https://github.com/user-attachments/assets/d05296a5-b3a1-4b62-be72-582d9c490119" />
 
 ### 2. Product Category Performance
 
-![Product Category Performance](screenshots/02-product-category-performance.png)
+<img width="1185" height="697" alt="image" src="https://github.com/user-attachments/assets/87d297d7-ce28-4f20-abde-7f8a496eb167" />
 
 ### 3. Product Profitability Analysis
 
-![Product Profitability Analysis](screenshots/03-product-profitability-analysis.png)
+<img width="1231" height="641" alt="image" src="https://github.com/user-attachments/assets/701ae5b1-b525-434c-8936-c8edcfb29fb8" />
 
 ### 4. Regional Sales Performance
 
-![Regional Sales Performance](screenshots/04-regional-sales-performance.png)
+<img width="1278" height="716" alt="image" src="https://github.com/user-attachments/assets/2075b1f5-7c54-46cc-ab51-83b630cd03b7" />
+
 
 ### 5. Customer and Reseller View
 
-![Customer and Reseller View](screenshots/05-customer-reseller-view.png)
+<img width="1291" height="722" alt="image" src="https://github.com/user-attachments/assets/deb0c2b7-b23b-4801-8a04-35ac2202bc90" />
+
 
 ### 6. Pricing and Margin Strategy
 
-![Pricing and Margin Strategy](screenshots/06-pricing-margin-strategy.png)
+<img width="1292" height="722" alt="image" src="https://github.com/user-attachments/assets/eb722ea7-5b68-46df-8543-5125fcf4fd6c" />
+
 
 ### 7. KPI Performance
 
-![KPI Performance](screenshots/07-kpi-performance.png)
+<img width="1230" height="713" alt="image" src="https://github.com/user-attachments/assets/c72c0b9e-b863-4bf4-97b9-33b318fdf09c" />
+
 
 ---
 
 ## Dataset
 
-The report uses the **AdventureWorks Sales** sample dataset.
+El reporte utiliza el dataset de ejemplo **AdventureWorks Sales**.
 
-The model follows a star-schema logic, with `Sales` as the central fact table and several dimension tables used for filtering and analysis.
+El modelo sigue una lógica de **modelo estrella**, donde `Sales` funciona como la tabla central de hechos y varias tablas de dimensión se utilizan para filtrar y analizar la información.
 
-### Main fact table
+### Tabla principal de hechos
 
 - `Sales`
 
-### Main dimension tables
+### Principales tablas de dimensión
 
 - `Date`
 - `Product`
@@ -71,49 +73,49 @@ The model follows a star-schema logic, with `Sales` as the central fact table an
 
 ---
 
-## Data Model Notes
+## Notas sobre el modelo de datos
 
-The central table in this report is `Sales`, which contains the main commercial facts:
+La tabla central de este reporte es `Sales`, ya que contiene los principales hechos comerciales:
 
-- Sales amount
-- Product cost
-- Order quantity
-- Unit price
-- Product keys
-- Customer keys
-- Reseller keys
-- Territory keys
-- Date keys
+- Importe de ventas
+- Costo del producto
+- Cantidad vendida
+- Precio unitario
+- Llaves de producto
+- Llaves de cliente
+- Llaves de reseller
+- Llaves de territorio
+- Llaves de fecha
 
-The report uses the relationship:
+La relación principal utilizada en el reporte es:
 
 ```text
 Date[DateKey] → Sales[OrderDateKey]
 ```
 
-This means that sales are analyzed based on the **order date**.
+Esto significa que las ventas se analizan con base en la **fecha en que se realizó la orden**.
 
-The `Sales` table also contains `DueDateKey`, but this field was not used as the main date relationship because the purpose of the report is to analyze sales by order date, not by due date.
+La tabla `Sales` también contiene el campo `DueDateKey`, pero este no se utilizó como la relación principal de fecha porque el objetivo del reporte es analizar ventas por fecha de orden, no por fecha de vencimiento o entrega esperada.
 
-In a different business analysis, `DueDateKey` could be useful for questions related to delivery, due dates, operational timelines, or fulfillment. However, for this dashboard, `OrderDateKey` is the correct field because the report focuses on when sales orders were placed.
-
----
-
-## Important Data Validation Note
-
-Although the `Date` table includes the year **2021**, the `Sales` fact table contains sales records only from **2017 to 2020** based on `OrderDateKey`.
-
-For this reason, the report focuses on the **2017–2020 sales period**, and the KPI page is filtered to **2020**, which is the latest available year with sales data.
-
-This was an important validation step because selecting 2021 in the date filter returns blank sales values. The presence of 2021 in the `Date` table does not mean that there are sales in 2021. It only means that the calendar table includes that year.
-
-This distinction matters because a calendar table can contain dates that are not necessarily present in the fact table. In this case, 2021 exists in the date dimension but does not have related sales transactions through `OrderDateKey`.
+En otro tipo de análisis, `DueDateKey` podría ser útil para responder preguntas relacionadas con entregas, vencimientos, tiempos operativos o cumplimiento logístico. Sin embargo, para este dashboard, `OrderDateKey` es el campo correcto porque el reporte se enfoca en cuándo se realizaron las ventas.
 
 ---
 
-## Core DAX Measures
+## Nota importante sobre validación de datos
 
-The following DAX measures were created for the report.
+Aunque la tabla `Date` incluye el año **2021**, la tabla de hechos `Sales` contiene registros de ventas únicamente de **2017 a 2020** con base en `OrderDateKey`.
+
+Por esta razón, el reporte se enfoca en el periodo de ventas **2017–2020**, y la página de KPIs está filtrada a **2020**, que es el último año disponible con datos de ventas.
+
+Este fue un paso importante de validación, porque al seleccionar 2021 en el filtro de fecha, los valores de ventas aparecen en blanco. La presencia de 2021 en la tabla `Date` no significa que existan ventas en 2021. Solo significa que la tabla calendario incluye ese año.
+
+Esta distinción es importante porque una tabla calendario puede contener fechas que no necesariamente existen en la tabla de hechos. En este caso, 2021 existe en la dimensión de fechas, pero no tiene transacciones de ventas relacionadas a través de `OrderDateKey`.
+
+---
+
+## Medidas DAX principales
+
+Las siguientes medidas DAX fueron creadas para el reporte.
 
 ### Total Sales
 
@@ -121,7 +123,7 @@ The following DAX measures were created for the report.
 Total Sales = SUM(Sales[Sales Amount])
 ```
 
-This measure calculates total revenue from sales.
+Esta medida calcula el ingreso total por ventas.
 
 ---
 
@@ -131,7 +133,7 @@ This measure calculates total revenue from sales.
 Total Cost = SUM(Sales[Total Product Cost])
 ```
 
-This measure calculates the total product cost available in the dataset.
+Esta medida calcula el costo total de producto disponible en el dataset.
 
 ---
 
@@ -141,7 +143,7 @@ This measure calculates the total product cost available in the dataset.
 Total Profit = [Total Sales] - [Total Cost]
 ```
 
-This measure calculates profit based on sales amount minus total product cost.
+Esta medida calcula la utilidad con base en el importe de ventas menos el costo total de producto.
 
 ---
 
@@ -151,7 +153,7 @@ This measure calculates profit based on sales amount minus total product cost.
 Profit Margin = DIVIDE([Total Profit], [Total Sales])
 ```
 
-This measure calculates the percentage of sales that remains after subtracting product cost.
+Esta medida calcula el porcentaje de ventas que permanece después de restar el costo del producto.
 
 ---
 
@@ -161,7 +163,7 @@ This measure calculates the percentage of sales that remains after subtracting p
 Total Quantity = SUM(Sales[Order Quantity])
 ```
 
-This measure calculates the total quantity sold.
+Esta medida calcula la cantidad total vendida.
 
 ---
 
@@ -171,41 +173,41 @@ This measure calculates the total quantity sold.
 Average Unit Price = AVERAGE(Sales[Unit Price])
 ```
 
-This measure is used in the pricing analysis page.
+Esta medida se utiliza en la página de análisis de precios.
 
 ---
 
-## Profit Interpretation
+## Interpretación de Profit
 
-In this report, `Profit` is calculated as:
+En este reporte, `Profit` se calcula como:
 
 ```text
 Sales Amount - Total Product Cost
 ```
 
-Therefore, `Profit Margin` should be interpreted as a product-level margin based on the available product cost data.
+Por lo tanto, `Profit Margin` debe interpretarse como un margen a nivel producto basado en los datos de costo disponibles.
 
-It should **not** be interpreted as net profit margin, because the dataset does not include operating expenses such as:
+No debe interpretarse como margen neto final de la empresa, porque el dataset no incluye gastos operativos como:
 
-- Salaries
-- Rent
-- Utilities
+- Salarios
+- Renta
+- Luz
 - Marketing
-- Taxes
-- Administrative expenses
-- Financial expenses
+- Impuestos
+- Gastos administrativos
+- Gastos financieros
 
-In a real business context, a full net profit analysis would require additional expense data.
+En un contexto real de negocio, un análisis completo de utilidad neta requeriría información adicional sobre gastos operativos.
 
-This is an important limitation of the dataset. The report can analyze margin after product cost, but it cannot evaluate final company profitability after all business expenses.
+Esta es una limitación importante del dataset. El reporte permite analizar margen después del costo directo del producto, pero no permite evaluar la rentabilidad final de la empresa después de todos sus gastos.
 
 ---
 
-## Target Measures
+## Medidas de objetivo
 
-Since the dataset does not include official business targets, illustrative benchmarks were created for dashboard design purposes.
+Como el dataset no incluye metas oficiales de negocio, se crearon benchmarks ilustrativos con fines de diseño y práctica del dashboard.
 
-In a real business setting, these targets should be validated with the finance, commercial planning, or executive team.
+En un contexto real, estas metas deberían validarse con el equipo financiero, de planeación comercial o con dirección.
 
 ---
 
@@ -215,7 +217,7 @@ In a real business setting, these targets should be validated with the finance, 
 Target Sales = 25000000
 ```
 
-The sales target was set at **25M** for 2020. This was defined as a reasonable illustrative benchmark because total sales in 2020 were approximately **24.47M**.
+La meta de ventas se estableció en **25M** para 2020. Este valor se definió como un benchmark ilustrativo razonable porque las ventas totales de 2020 fueron aproximadamente **24.47M**.
 
 ---
 
@@ -233,7 +235,7 @@ Min Sales = 0
 Max Sales = 50000000
 ```
 
-The maximum sales value was set at **50M** to provide a readable gauge scale, considering that the highest annual sales value in the dataset was approximately **42.90M** in 2019.
+El valor máximo de ventas se estableció en **50M** para tener una escala legible en el gauge, considerando que el mayor valor anual de ventas en el dataset fue aproximadamente **42.90M** en 2019.
 
 ---
 
@@ -243,9 +245,9 @@ The maximum sales value was set at **50M** to provide a readable gauge scale, co
 Target Profit Margin = 0.15
 ```
 
-The target profit margin was set at **15%** based on the historical profit margin range.
+La meta de margen de utilidad se estableció en **15%** con base en el rango histórico observado.
 
-Observed yearly profit margins:
+Márgenes de utilidad anuales observados:
 
 ```text
 2017 → 15.77%
@@ -255,7 +257,7 @@ Observed yearly profit margins:
 Total → 11.43%
 ```
 
-The 15% target is close to the best historical performance and therefore works as an ambitious but realistic benchmark.
+La meta de 15% se encuentra cerca del mejor desempeño histórico, por lo que funciona como un benchmark ambicioso pero realista.
 
 ---
 
@@ -273,347 +275,347 @@ Min Profit Margin = 0
 Max Profit Margin = 0.20
 ```
 
-The maximum profit margin was set at **20%** instead of 100% because the observed margins are much lower. This makes the gauge more readable and useful.
+El margen máximo se estableció en **20%** en lugar de 100%, porque los márgenes observados son mucho menores. Esto hace que el gauge sea más legible y útil para el análisis.
 
 ---
 
-# Report Pages
+# Páginas del reporte
 
 ---
 
 ## 1. Executive Overview
 
-### Business Question
+### Pregunta de negocio
 
-How did AdventureWorks perform overall from 2017 to 2020 in terms of sales, profit, and margin?
+¿Cómo se desempeñó AdventureWorks de forma general entre 2017 y 2020 en términos de ventas, utilidad y margen?
 
-### Questions Answered
+### Preguntas que responde
 
-- What were total sales?
-- How much profit was generated?
-- What was the overall profit margin?
-- Which year had the strongest sales performance?
-- Did profit move in the same direction as sales?
-- How did the business perform across the available sales period?
+- ¿Cuáles fueron las ventas totales?
+- ¿Cuánta utilidad se generó?
+- ¿Cuál fue el margen general de utilidad?
+- ¿Qué año tuvo el mayor desempeño en ventas?
+- ¿La utilidad se movió en la misma dirección que las ventas?
+- ¿Cómo se comportó el negocio durante el periodo disponible?
 
-### Visuals Used
+### Visualizaciones utilizadas
 
-- Card: Total Sales
-- Card: Total Profit
-- Card: General Profit Margin
-- Combo chart: Total Sales and Total Profit by Year
-- Slicer: Year
+- Tarjeta: Total Sales
+- Tarjeta: Total Profit
+- Tarjeta: General Profit Margin
+- Gráfico combinado: Total Sales y Total Profit por año
+- Segmentador: Año
 
-### Page Interpretation
+### Interpretación de la página
 
-The page shows total sales of approximately **109.81M**, total profit of approximately **12.55M**, and an overall profit margin of **11.43%**.
+La página muestra ventas totales de aproximadamente **109.81M**, utilidad total de aproximadamente **12.55M** y un margen general de utilidad de **11.43%**.
 
-The yearly trend shows that **2019 was the strongest year in sales**, reaching approximately **42.90M**. Profit also increased from 2017 to 2019, then decreased in 2020.
+La tendencia anual muestra que **2019 fue el año más fuerte en ventas**, alcanzando aproximadamente **42.90M**. La utilidad también aumentó de 2017 a 2019 y después disminuyó en 2020.
 
-This page provides a high-level executive view of the business before moving into product, regional, reseller, and pricing analysis.
+Esta página ofrece una vista ejecutiva general del negocio antes de pasar a los análisis por producto, región, reseller y pricing.
 
-### Business Observation
+### Observación de negocio
 
-The overall trend suggests that sales and profit generally move in the same direction. However, the decrease in 2020 indicates that the latest available sales year performed below 2019.
+La tendencia general sugiere que las ventas y la utilidad se mueven en una dirección similar. Sin embargo, la caída en 2020 indica que el último año disponible tuvo un desempeño menor que 2019.
 
-This page is useful as an executive starting point because it answers the first business question:
+Esta página funciona como punto de partida ejecutivo porque responde la primera pregunta del reporte:
 
-> How is the business performing overall?
+> ¿Cómo se está desempeñando el negocio en general?
 
-### Design Notes
+### Notas de diseño
 
-Cards were used for key metrics because they allow the user to quickly understand the overall scale of the business. The combo chart was used because it compares two related measures: total sales and total profit.
+Se utilizaron tarjetas para las métricas clave porque permiten entender rápidamente la escala general del negocio. El gráfico combinado se utilizó porque permite comparar dos medidas relacionadas: ventas totales y utilidad total.
 
-The page also includes a year slicer to allow users to explore the available period from 2017 to 2020.
+La página también incluye un segmentador de año para que el usuario pueda explorar el periodo disponible de 2017 a 2020.
 
 ---
 
 ## 2. Product Category Performance
 
-### Business Question
+### Pregunta de negocio
 
-Which product categories generate the highest sales and profit?
+¿Qué categorías de producto generan mayores ventas y utilidad?
 
-### Questions Answered
+### Preguntas que responde
 
-- Which category sells the most?
-- Which category generates the most profit?
-- Does the highest-selling category also generate the highest profit?
-- How concentrated are sales by category?
-- Which subcategories explain most of the sales?
+- ¿Qué categoría vende más?
+- ¿Qué categoría genera más utilidad?
+- ¿La categoría que más vende también es la que más utilidad genera?
+- ¿Qué tan concentradas están las ventas por categoría?
+- ¿Qué subcategorías explican la mayor parte de las ventas?
 
-### Visuals Used
+### Visualizaciones utilizadas
 
 - Treemap: Sales by Category and Subcategory
-- Bar chart: Total Profit by Category
-- Slicer: Year
+- Gráfico de barras: Total Profit by Category
+- Segmentador: Año
 
-### Page Interpretation
+### Interpretación de la página
 
-The treemap shows that **Bikes** dominate total sales. The profit bar chart also shows that Bikes generate the highest total profit.
+El treemap muestra que **Bikes** domina las ventas totales. El gráfico de utilidad por categoría también muestra que Bikes genera la mayor utilidad total.
 
-This indicates that AdventureWorks is highly dependent on the Bikes category as both a revenue and profit driver.
+Esto indica que AdventureWorks depende fuertemente de la categoría Bikes tanto como generadora de ingresos como de utilidad.
 
-### Business Observation
+### Observación de negocio
 
-This concentration can be positive because Bikes are clearly a strong category. However, it may also represent a business risk if the company depends too heavily on one category.
+Esta concentración puede ser positiva porque Bikes es claramente una categoría fuerte. Sin embargo, también puede representar un riesgo si la empresa depende demasiado de una sola categoría.
 
-If the Bikes category experiences lower demand, supply chain problems, or pricing pressure, the overall business could be significantly affected.
+Si la demanda de Bikes disminuye, si existen problemas de suministro o si hay presión en precios, el negocio completo podría verse afectado de forma importante.
 
-### Design Notes
+### Notas de diseño
 
-The treemap was used to show the composition of sales by category and subcategory. This is useful when the goal is to understand how much each group contributes to the total.
+El treemap se utilizó para mostrar la composición de ventas por categoría y subcategoría. Este visual es útil cuando el objetivo es entender cuánto contribuye cada grupo al total.
 
-The bar chart complements the treemap by showing total profit by category. This is important because the category with the highest sales is not always the category with the highest profit.
+El gráfico de barras complementa al treemap porque muestra utilidad total por categoría. Esto es importante porque la categoría con mayores ventas no siempre es la que genera mayor utilidad.
 
-In this case, Bikes dominate both sales and profit.
+En este caso, Bikes domina tanto ventas como utilidad.
 
 ---
 
 ## 3. Product Profitability Analysis
 
-### Business Question
+### Pregunta de negocio
 
-Which products sell a lot but have low profitability?
+¿Qué productos venden mucho, pero tienen baja rentabilidad?
 
-### Questions Answered
+### Preguntas que responde
 
-- Which products generate the highest sales?
-- Which products have the highest profit margin?
-- Are there high-sales products with low margin?
-- Which products may require price or cost review?
-- Which product categories contain the most profitable products?
-- Are there smaller products with strong profit margins?
+- ¿Qué productos generan mayores ventas?
+- ¿Qué productos tienen mayor margen de utilidad?
+- ¿Existen productos con ventas altas pero margen bajo?
+- ¿Qué productos podrían requerir revisión de precio o costo?
+- ¿Qué categorías contienen los productos más rentables?
+- ¿Existen productos más pequeños con buenos márgenes?
 
-### Visual Used
+### Visualización utilizada
 
 Scatter plot:
 
-- X-axis: Total Sales
-- Y-axis: Profit Margin
-- Bubble size: Total Quantity
-- Legend: Product Category
-- Details: Product
+- Eje X: Total Sales
+- Eje Y: Profit Margin
+- Tamaño de burbuja: Total Quantity
+- Leyenda: Product Category
+- Detalle: Product
 
-### Page Interpretation
+### Interpretación de la página
 
-Each bubble represents a product. The position of each product shows its sales performance and profit margin, while the bubble size shows the quantity sold.
+Cada burbuja representa un producto. La posición de cada producto muestra su desempeño en ventas y su margen de utilidad, mientras que el tamaño de la burbuja muestra la cantidad vendida.
 
-The scatter plot can be interpreted using four groups:
+El scatter plot puede interpretarse usando cuatro grupos:
 
 ```text
-High Sales + High Margin
-→ Star products
+Ventas altas + Margen alto
+→ Productos estrella
 
-High Sales + Low Margin
-→ High-volume products that may need margin review
+Ventas altas + Margen bajo
+→ Productos de alto volumen que podrían necesitar revisión de margen
 
-Low Sales + High Margin
-→ Smaller but profitable products with growth potential
+Ventas bajas + Margen alto
+→ Productos más pequeños pero rentables, con potencial de crecimiento
 
-Low Sales + Low Margin
-→ Weak or low-priority products
+Ventas bajas + Margen bajo
+→ Productos débiles o de baja prioridad
 ```
 
-### Business Observation
+### Observación de negocio
 
-This page goes beyond simply identifying top-selling products. It helps distinguish between products that generate revenue and products that are truly profitable.
+Esta página va más allá de identificar simplemente los productos más vendidos. Ayuda a distinguir entre productos que generan ingresos y productos que realmente son rentables.
 
-Some products may have high sales but relatively low margins. Those products may require a deeper review of pricing, cost structure, or discounting strategy.
+Algunos productos pueden tener ventas altas pero márgenes relativamente bajos. Esos productos podrían requerir una revisión más profunda de precios, estructura de costos o estrategia comercial.
 
-On the other hand, products with lower sales but strong margins may represent growth opportunities.
+Por otro lado, productos con ventas más bajas pero márgenes fuertes podrían representar oportunidades de crecimiento.
 
-### Design Notes
+### Notas de diseño
 
-A scatter plot was selected because the page compares two numerical variables at the same time: total sales and profit margin.
+Se seleccionó un scatter plot porque la página compara dos variables numéricas al mismo tiempo: ventas totales y margen de utilidad.
 
-The size of each bubble adds a third analytical layer by showing total quantity sold.
+El tamaño de cada burbuja agrega una tercera capa de análisis al mostrar la cantidad total vendida.
 
-This page also illustrates an important DAX concept: `Profit Margin` is a dynamic measure. It is not automatically calculated “by product” unless the visual provides product-level context. In this scatter plot, because `Product` is used as the detail field, Power BI evaluates the measure for each product.
+Esta página también ilustra un concepto importante de DAX: `Profit Margin` es una medida dinámica. No se calcula automáticamente “por producto” a menos que el visual proporcione un contexto a nivel producto. En este scatter plot, como `Product` se usa como campo de detalle, Power BI evalúa la medida para cada producto.
 
 ---
 
 ## 4. Regional Sales Performance
 
-### Business Question
+### Pregunta de negocio
 
-Which regions or territories are driving sales and profitability?
+¿Qué regiones o territorios impulsan las ventas y la rentabilidad?
 
-### Questions Answered
+### Preguntas que responde
 
-- Which regions generate the highest sales?
-- Which regions have the highest profit margin?
-- Do high-sales regions also have strong margins?
-- Are there underperforming regions?
-- How is commercial performance distributed geographically?
+- ¿Qué regiones generan mayores ventas?
+- ¿Qué regiones tienen mayor margen de utilidad?
+- ¿Las regiones con mayores ventas también tienen buenos márgenes?
+- ¿Existen regiones con bajo desempeño?
+- ¿Cómo se distribuye geográficamente el desempeño comercial?
 
-### Visuals Used
+### Visualizaciones utilizadas
 
-- Map: Total Sales by Region
-- Bar chart: Profit Margin by Region
-- Slicer: Year
+- Mapa: Total Sales by Region
+- Gráfico de barras: Profit Margin by Region
+- Segmentador: Año
 
-### Page Interpretation
+### Interpretación de la página
 
-The map provides a geographic view of sales distribution. The profit margin bar chart complements the map by allowing a more precise comparison of profitability by region.
+El mapa ofrece una vista geográfica de la distribución de ventas. El gráfico de margen por región complementa el mapa al permitir una comparación más precisa de rentabilidad por región.
 
-This page shows that a region may have strong sales but not necessarily the highest margin. For this reason, sales and margin should be analyzed together.
+Esta página muestra que una región puede tener ventas fuertes, pero no necesariamente el margen más alto. Por esta razón, ventas y margen deben analizarse en conjunto.
 
-### Business Observation
+### Observación de negocio
 
-Regional performance should not be evaluated using only sales volume. A region with lower sales may still have strong profitability if its margins are higher.
+El desempeño regional no debería evaluarse únicamente con volumen de ventas. Una región con menores ventas puede tener una rentabilidad fuerte si sus márgenes son más altos.
 
-Similarly, a high-sales region may require attention if its margin is weak.
+De la misma forma, una región con ventas altas puede requerir atención si su margen es débil.
 
-### Design Notes
+### Notas de diseño
 
-The map was used to provide geographic context. However, maps are not always ideal for comparing exact values. For that reason, a bar chart was included to compare profit margin by region more clearly.
+El mapa se utilizó para dar contexto geográfico. Sin embargo, los mapas no siempre son ideales para comparar valores exactos. Por esa razón, se incluyó un gráfico de barras para comparar el margen de utilidad por región de manera más clara.
 
-This page combines geographic exploration with a more precise profitability comparison.
+Esta página combina exploración geográfica con una comparación más precisa de rentabilidad.
 
 ---
 
 ## 5. Customer and Reseller View
 
-### Business Question
+### Pregunta de negocio
 
-Does the business depend heavily on specific resellers or business types?
+¿El negocio depende fuertemente de ciertos resellers o tipos de negocio?
 
-### Questions Answered
+### Preguntas que responde
 
-- Which reseller generates the highest sales?
-- Which business type contributes the most to sales?
-- Which resellers have strong profit margins?
-- Are there resellers with high sales but negative or low profit?
-- What does “Not Applicable” mean in the Business Type analysis?
+- ¿Qué reseller genera mayores ventas?
+- ¿Qué tipo de negocio contribuye más a las ventas?
+- ¿Qué resellers tienen márgenes fuertes?
+- ¿Existen resellers con ventas altas pero utilidad negativa o baja?
+- ¿Qué significa “Not Applicable” en el análisis por Business Type?
 
-### Visuals Used
+### Visualizaciones utilizadas
 
-- Table: Total Sales, Reseller, Total Profit, Profit Margin
+- Tabla: Total Sales, Reseller, Total Profit, Profit Margin
 - Treemap: Total Sales by Business Type
-- Slicer: Region
+- Segmentador: Region
 
-### Page Interpretation
+### Interpretación de la página
 
-The table allows detailed comparison across resellers, including sales, profit, and profit margin.
+La tabla permite comparar de forma detallada a los resellers, incluyendo ventas, utilidad y margen de utilidad.
 
-The treemap shows sales distribution by business type. Warehouse appears as a major contributor, followed by other business types such as Value Added Reseller and Specialty Bike Shop.
+El treemap muestra la distribución de ventas por tipo de negocio. Warehouse aparece como un contribuyente importante, seguido por otros tipos de negocio como Value Added Reseller y Specialty Bike Shop.
 
-### Note About “Not Applicable”
+### Nota sobre “Not Applicable”
 
-The “Not Applicable” category likely represents sales that are not associated with a specific reseller business type. This does not necessarily mean there is an error in the data.
+La categoría “Not Applicable” probablemente representa ventas que no están asociadas con un tipo de negocio específico de reseller. Esto no necesariamente significa que exista un error en los datos.
 
-It means that, for those sales records, the reseller business type does not apply or is not available.
+Significa que, para esos registros de ventas, el tipo de negocio de reseller no aplica o no está disponible.
 
-Depending on the business question, this category could either be kept for transparency or filtered out if the page is focused only on reseller-specific performance.
+Dependiendo de la pregunta de negocio, esta categoría podría mantenerse por transparencia o filtrarse si la página se enfoca únicamente en desempeño específico de resellers.
 
-### Business Observation
+### Observación de negocio
 
-This page helps identify whether sales are concentrated in specific resellers or business types.
+Esta página ayuda a identificar si las ventas están concentradas en resellers o tipos de negocio específicos.
 
-If a small number of resellers or business types contribute a large portion of sales, the business may depend heavily on those channels.
+Si un número pequeño de resellers o tipos de negocio aporta una gran proporción de ventas, el negocio puede depender fuertemente de esos canales.
 
-### Design Notes
+### Notas de diseño
 
-The table provides detailed values at the reseller level. The treemap provides a more visual composition of sales by business type.
+La tabla proporciona valores detallados a nivel reseller. El treemap ofrece una composición visual de ventas por tipo de negocio.
 
-During the analysis, it was important to validate that “Not Applicable” was not necessarily an error, but a category that appears because some sales do not have an applicable reseller business type.
+Durante el análisis, fue importante validar que “Not Applicable” no era necesariamente un error, sino una categoría que aparece porque algunas ventas no tienen un tipo de negocio de reseller aplicable.
 
 ---
 
 ## 6. Pricing and Margin Strategy
 
-### Business Question
+### Pregunta de negocio
 
-Which products have a favorable or unfavorable relationship between average unit price, sales, and profit margin?
+¿Qué productos tienen una relación favorable o desfavorable entre precio promedio, ventas y margen de utilidad?
 
-### Questions Answered
+### Preguntas que responde
 
-- Do higher-priced products have better margins?
-- Which products have high prices but low margins?
-- Which products have low prices but strong margins?
-- Which categories perform better in terms of pricing and profitability?
-- Do discounts explain profitability differences?
+- ¿Los productos con mayor precio tienen mejores márgenes?
+- ¿Qué productos tienen precios altos pero márgenes bajos?
+- ¿Qué productos tienen precios bajos pero márgenes fuertes?
+- ¿Qué categorías se comportan mejor en términos de precio y rentabilidad?
+- ¿Los descuentos explican diferencias en rentabilidad?
 
-### Visuals Used
+### Visualizaciones utilizadas
 
 - Scatter plot: Average Unit Price vs Profit Margin
-- Bubble size: Total Sales
-- Legend: Product Category
-- Table: Category, Product, Average Unit Price, Total Sales, Profit Margin
-- Slicer: Year
+- Tamaño de burbuja: Total Sales
+- Leyenda: Product Category
+- Tabla: Category, Product, Average Unit Price, Total Sales, Profit Margin
+- Segmentador: Año
 
-### Page Interpretation
+### Interpretación de la página
 
-The scatter plot analyzes the relationship between product pricing and profitability.
+El scatter plot analiza la relación entre el precio de los productos y su rentabilidad.
 
-Products with higher prices and strong margins can be considered premium and profitable. Products with high prices but weak margins may require further review of costs or pricing strategy.
+Los productos con precios altos y márgenes fuertes pueden considerarse productos premium y rentables. Los productos con precios altos pero márgenes débiles podrían requerir una revisión más profunda de costos o estrategia de precios.
 
-The table complements the scatter plot by allowing specific products to be identified by name and value.
+La tabla complementa el scatter plot porque permite identificar productos específicos por nombre y valor.
 
-### Discount Analysis Note
+### Nota sobre análisis de descuentos
 
-A discount analysis was initially considered, but the `Unit Price Discount Pct` field showed little to no variation across the dataset.
+Inicialmente se consideró realizar un análisis de descuentos, pero el campo `Unit Price Discount Pct` mostró poca o nula variación en el dataset.
 
-For this reason, the pricing page focuses on:
+Por esta razón, la página de pricing se enfoca en:
 
 - Average Unit Price
 - Total Sales
 - Product Cost
 - Profit Margin
 
-instead of discount impact.
+en lugar de analizar impacto de descuentos.
 
-This was an important analytical decision because not every available field contributes meaningful insight.
+Esta fue una decisión analítica importante porque no todos los campos disponibles aportan información significativa.
 
-### Business Observation
+### Observación de negocio
 
-The page helps identify whether price levels are aligned with profitability.
+La página ayuda a identificar si los niveles de precio están alineados con la rentabilidad.
 
-A high-priced product with low margin may indicate high product costs or pricing inefficiency. A lower-priced product with strong margin may be a good candidate for promotion or growth.
+Un producto de precio alto con margen bajo puede indicar costos elevados o una estrategia de precios ineficiente. Un producto de precio bajo con margen fuerte podría ser buen candidato para promoción o crecimiento.
 
-### Design Notes
+### Notas de diseño
 
-The original idea was to analyze discounts and profitability. However, after validating the discount field, it became clear that discounts were not a useful driver in this dataset.
+La idea original era analizar descuentos y rentabilidad. Sin embargo, después de validar el campo de descuentos, se observó que los descuentos no eran un driver útil en este dataset.
 
-Instead of forcing a weak visual, the page was redesigned around pricing and margin strategy. This makes the analysis more meaningful.
+En lugar de forzar una visualización débil, la página se rediseñó alrededor de estrategia de precio y margen. Esto hace que el análisis sea más significativo.
 
 ---
 
 ## 7. KPI Performance
 
-### Business Question
+### Pregunta de negocio
 
-Is the business meeting its sales and profitability targets in 2020?
+¿El negocio está cumpliendo sus objetivos de ventas y rentabilidad en 2020?
 
-### Questions Answered
+### Preguntas que responde
 
-- Did 2020 sales reach the target?
-- Did 2020 profit margin reach the target?
-- How close was the business to its goals?
-- How did profit margin behave throughout 2020?
+- ¿Las ventas de 2020 alcanzaron la meta?
+- ¿El margen de utilidad de 2020 alcanzó la meta?
+- ¿Qué tan cerca estuvo el negocio de sus objetivos?
+- ¿Cómo se comportó el margen de utilidad durante 2020?
 
-### Page Filter
+### Filtro de página
 
-This page is filtered to:
+Esta página está filtrada a:
 
 ```text
 Date - Year = 2020
 ```
 
-The page focuses on 2020 because it is the latest year with sales data in the `Sales` table.
+La página se enfoca en 2020 porque es el último año con datos de ventas en la tabla `Sales`.
 
-Although the `Date` table includes 2021, there are no related sales records in 2021 using `OrderDateKey`.
+Aunque la tabla `Date` incluye 2021, no existen registros de ventas relacionados en 2021 usando `OrderDateKey`.
 
-### Visuals Used
+### Visualizaciones utilizadas
 
 - Gauge: Total Sales vs Target Sales
 - KPI: Profit Margin vs Target Profit Margin
-- Line chart: Profit Margin by Month
+- Gráfico de línea: Profit Margin by Month
 
-### Sales Gauge Interpretation
+### Interpretación del gauge de ventas
 
-The gauge shows:
+El gauge muestra:
 
 ```text
 Total Sales 2020: 24.47M
@@ -621,207 +623,58 @@ Target Sales: 25M
 Max Sales: 50M
 ```
 
-This means that AdventureWorks reached approximately:
+Esto significa que AdventureWorks alcanzó aproximadamente:
 
 ```text
 24.47 / 25 = 97.9%
 ```
 
-of the illustrative 2020 sales target.
+de la meta ilustrativa de ventas para 2020.
 
-### Profit Margin KPI Interpretation
+### Interpretación del KPI de margen
 
-The KPI shows:
+El KPI muestra:
 
 ```text
 Profit Margin 2020: 14.23%
 Target Profit Margin: 15.00%
 ```
 
-Power BI displays a relative difference of approximately:
+Power BI muestra una diferencia relativa aproximada de:
 
 ```text
 -5.15%
 ```
 
-This does not mean that the margin is 5.15 percentage points below target.
+Esto no significa que el margen esté 5.15 puntos porcentuales por debajo de la meta.
 
-The difference in percentage points is:
+La diferencia en puntos porcentuales es:
 
 ```text
-15.00% - 14.23% = 0.77 percentage points
+15.00% - 14.23% = 0.77 puntos porcentuales
 ```
 
-The `-5.15%` represents the relative gap compared with the target:
+El `-5.15%` representa la brecha relativa comparada con el objetivo:
 
 ```text
 (14.23% - 15.00%) / 15.00% ≈ -5.15%
 ```
 
-### KPI Design Note
+### Nota sobre el diseño del KPI
 
-When using Month as the KPI trend axis, Power BI displays the latest monthly value, not the annual 2020 margin. This caused the KPI to show a much lower value for the last month.
+Cuando se usa Month como eje de tendencia en el KPI, Power BI muestra el último valor mensual, no el margen anual de 2020. Esto provocó que el KPI mostrara un valor mucho más bajo para el último mes.
 
-For this reason:
-
-```text
-Gauge / KPI → best for target comparison
-Line chart → best for monthly trend analysis
-```
-
-The final design separates annual target comparison from monthly trend interpretation.
-
-### Business Observation
-
-The KPI page shows that 2020 sales were very close to the illustrative sales target, while profit margin was slightly below the 15% benchmark.
-
-This page provides a simple executive view of performance against goals.
-
-### Design Notes
-
-The KPI page is intentionally filtered to 2020 because it represents the most recent complete year of sales data in the dataset.
-
-The sales target and profit margin target are illustrative. In a real company, these values should be provided or validated by the finance or commercial planning team.
-
----
-
-# Key Business Insights
-
-## 1. Sales peaked in 2019
-
-The strongest sales year was 2019, with approximately **42.90M** in total sales.
-
-## 2. 2020 sales declined but remained close to the illustrative target
-
-Sales in 2020 reached approximately **24.47M**, close to the 25M benchmark.
-
-## 3. Bikes dominate both sales and profit
-
-The Bikes category is the main driver of revenue and profit.
-
-## 4. Profit margin varies significantly by product and region
-
-High sales do not always imply high margins. Product-level and regional margin analysis provide additional business context.
-
-## 5. Discounts are not a major driver in this dataset
-
-The discount field showed little to no variation, so discount analysis was not useful as a main page.
-
-## 6. Targets are illustrative
-
-The sales and margin targets were created for dashboard design purposes. In a real company, they should be defined by finance, planning, or leadership teams.
-
----
-
-# Dashboard Design Principles Applied
-
-This report was designed using the following principles:
-
-- One main business question per page
-- Clear separation between overview, product, region, reseller, pricing, and KPI analysis
-- Use of cards for executive metrics
-- Use of scatter plots for profitability analysis
-- Use of treemaps for composition analysis
-- Use of gauges and KPIs for target monitoring
-- Use of slicers and page-level filters for context
-- Consistent color palette
-- Reduced cognitive load
-- Visuals selected based on the question being answered
-
----
-
-# Project Limitations
-
-## 1. No official targets were available
-
-The dataset does not include official sales or margin targets. The targets used in this report were created as illustrative benchmarks.
-
-## 2. Profit is not net profit
-
-The profit calculation does not include operating expenses, taxes, salaries, rent, utilities, or marketing costs.
-
-## 3. 2021 exists in the Date table but not in Sales
-
-The calendar table includes 2021, but the sales fact table does not contain related sales records for 2021 using `OrderDateKey`.
-
-## 4. Discount analysis was limited
-
-The discount field had little to no variation, so it was not useful as a primary analytical dimension.
-
----
-
-# How I Would Present This Project
-
-This dashboard analyzes AdventureWorks sales performance from 2017 to 2020 using Power BI.
-
-I built the report around a star-schema model, with `Sales` as the fact table and dimensions such as `Date`, `Product`, `Reseller`, and `SalesTerritory`.
-
-Before building the visualizations, I validated the available date range and found that although the `Date` table includes 2021, the `Sales` table contains sales only through 2020 based on `OrderDateKey`. For this reason, the report focuses on 2017–2020, and the KPI page uses 2020 as the latest available year.
-
-I created DAX measures for Total Sales, Total Cost, Total Profit, Profit Margin, Total Quantity, and Average Unit Price. I also created illustrative targets for sales and profit margin to practice KPI and gauge visuals.
-
-The report is organized by business question:
+Por esa razón:
 
 ```text
-Executive Overview
-→ How is the business performing overall?
-
-Product Category Performance
-→ Which categories drive sales and profit?
-
-Product Profitability Analysis
-→ Which products sell a lot but have low margin?
-
-Regional Sales Performance
-→ Which regions perform best?
-
-Customer and Reseller View
-→ Which resellers and business types contribute most to sales?
-
-Pricing and Margin Strategy
-→ How do price, sales, and margin relate?
-
-KPI Performance
-→ Is the business meeting 2020 sales and margin targets?
+Gauge / KPI → mejor para comparación contra objetivo
+Line chart → mejor para análisis de tendencia mensual
 ```
 
-The goal was to create a dashboard that is not only visually clear, but also easy to explain from a business perspective.
+El diseño final separa la comparación anual contra objetivo de la interpretación de tendencia mensual.
 
----
+### Observación de negocio
 
-# Repository Contents
+La página de KPIs muestra que las ventas de 2020 estuvieron muy cerca del objetivo ilustrativo, mientras que el margen de utilidad quedó ligeramente por debajo del benchmark de 15%.
 
-```text
-adventureworks-sales-dashboard/
-│
-├── README.md
-├── adventureworks-sales-performance-dashboard.pbix
-└── screenshots/
-    ├── 01-executive-overview.png
-    ├── 02-product-category-performance.png
-    ├── 03-product-profitability-analysis.png
-    ├── 04-regional-sales-performance.png
-    ├── 05-customer-reseller-view.png
-    ├── 06-pricing-margin-strategy.png
-    └── 07-kpi-performance.png
-```
-
----
-
-# Tools Used
-
-- Power BI Desktop
-- DAX
-- Data modeling
-- Star schema logic
-- Data visualization
-- Dashboard design principles
-- GitHub documentation
-
----
-
-# Final Reflection
-
-This project helped me practice the full Power BI workflow: validating data, understanding relationships, creating DAX measures, selecting visuals based on business questions, applying filters, designing report pages, and documenting insights.
-
-The most important learning was that building a dashboard is not only about creating charts. It is about translating business questions into clear, useful, and well-structured visual analysis.
+Esta página ofrece una
