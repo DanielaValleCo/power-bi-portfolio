@@ -1279,46 +1279,10 @@ La idea principal del proceso es que la limpieza de datos no consiste únicament
 
 ---
 
-## Mini resumen ejecutivo
+## Resumen
 
 La preparación de datos en Power BI consiste en revisar, limpiar y transformar la información antes de analizarla. Power Query permite construir una secuencia de pasos reproducibles para corregir encabezados, tipos de datos, valores vacíos, duplicados, errores de texto, valores extremos, columnas numéricas y fechas. La buena práctica más importante es no transformar datos sin entender su significado: cada eliminación, reemplazo o filtro debe tener una razón clara.
 
----
-
-## Frases clave para recordar
-
-> Dato limpio, análisis confiable.
-
-> No todo null se rellena.
-
-> No todo duplicado es error.
-
-> No todo valor extremo se elimina.
-
-> Power Query es una receta: cada paso importa.
-
-> Primero diagnosticar, luego transformar.
-
-> Si no sabes qué significa el vacío, no lo inventes.
-
----
-
-## Posible estructura del repositorio
-
-```text
-power-bi-data-preparation-manual/
-│
-├── README.md
-├── manual_data_preparation_power_bi.md
-├── images/
-│   └── power_query_preview_features.png
-├── examples/
-│   └── adventureworks_cleaning_notes.md
-└── datasets/
-    └── README.md
-```
-
----
 
 ## Nota personal
 
