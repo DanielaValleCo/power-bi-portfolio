@@ -1,6 +1,6 @@
 # Manual de preparación de datos en Power BI
 
-> Compilación de notas del curso **Data Preparation in Power BI** y apuntes personales sobre limpieza, diagnóstico y transformación de datos con **Power Query**.
+> Apuntes personales sobre limpieza, diagnóstico y transformación de datos con **Power Query**.
 
 ---
 
